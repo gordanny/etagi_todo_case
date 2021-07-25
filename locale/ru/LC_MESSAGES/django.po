@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-23 17:03+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\etagi\settings.py:137
+msgid "English"
+msgstr "Английский"
+
+#: .\etagi\settings.py:138
+msgid "Russian"
+msgstr "Русский"
+
+#: .\todo\models.py:9
+msgid "low"
+msgstr "низкий"
+
+#: .\todo\models.py:10
+msgid "middle"
+msgstr "средний"
+
+#: .\todo\models.py:11
+msgid "high"
+msgstr "высокий"
+
+#: .\todo\models.py:14
+msgid "to work"
+msgstr "к выполнению"
+
+#: .\todo\models.py:15
+msgid " in progress"
+msgstr "выполняется"
+
+#: .\todo\models.py:16
+msgid "finished"
+msgstr "выполнена"
+
+#: .\todo\models.py:17
+msgid "canceled"
+msgstr "отменена"
+
+#: .\todo\models.py:19
+msgid "title"
+msgstr "заголовок"
+
+#: .\todo\models.py:20
+msgid "description"
+msgstr "описание"
+
+#: .\todo\models.py:21
+msgid "expiration date"
+msgstr "дата окончания"
+
+#: .\todo\models.py:22
+msgid "creation date"
+msgstr "дата создания"
+
+#: .\todo\models.py:23
+msgid "update date"
+msgstr "дата обновления"
+
+#: .\todo\models.py:24
+msgid "priority"
+msgstr "приоритет"
+
+#: .\todo\models.py:25
+msgid "status"
+msgstr "статус"
+
+#: .\todo\models.py:30
+msgid "creator"
+msgstr "создатель"
+
+#: .\todo\models.py:35
+msgid "responsible"
+msgstr "ответственные"
+
+#: .\users\forms.py:22
+msgid "Passwords don't match"
+msgstr "Пароли не совпадают"
+
+#: .\users\forms.py:44
+msgid "A user with this login is not exist"
+msgstr "Пользователь с таким логином не существует"
+
+#: .\users\forms.py:45
+msgid "Incorrect password"
+msgstr "Неверный пароль"
+
+#: .\users\forms.py:46
+msgid "This account is inactive."
+msgstr "Этот аккаунт неактивен"
+
+#: .\users\models.py:11
+msgid "Username required"
+msgstr "Необходимо ввести имя пользователя"
+
+#: .\users\models.py:25
+msgid "Superuser must have is_admin=True."
+msgstr "Суперпользователь должен обладать правами администратора"
+
+#: .\users\models.py:34
+msgid "username"
+msgstr "имя пользователя"
+
+#: .\users\models.py:37
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "Обязательное. 30 символов или меньше. Допустимы только буквы, цифры и символы @/./+/-/_"
+
+#: .\users\models.py:40
+msgid "A user with that username already exists."
+msgstr "Пользователя с таким логином уже существует"
+
+#: .\users\models.py:43
+msgid "first name"
+msgstr "имя"
+
+#: .\users\models.py:44
+msgid "last name"
+msgstr "фамилия"
+
+#: .\users\models.py:45
+msgid "patronymic"
+msgstr "отчество"
+
+#: .\users\models.py:46
+msgid "chief"
+msgstr "руководитель"
+
+#: .\users\models.py:48
+msgid "active"
+msgstr "активный"
+
+#: .\users\models.py:51
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Определяет, следует ли рассматривать этого пользователя как активного."
+"Отключайте эту опцию вместо удаления аккаунтов"
+
+#: .\users\models.py:56
+msgid "administrator status"
+msgstr "статус администратора"
+
+#: .\users\models.py:58
+msgid "Designates whether the user can log into this admin site."
+msgstr "Определяет возможность доступа данного пользователя"
+"в административную часть сайта"
+
+#: .\users\serializers.py:29
+msgid "User account is disabled."
+msgstr "Аккаует пользователя отключен"
+
+#: .\users\serializers.py:39
+msgid "Incorrect password."
+msgstr "Неверный пароль"
+
+#: .\users\serializers.py:42
+msgid "A user with this login is not exist."
+msgstr "Пользователя с таким логином не существует"
+
+#: .\users\serializers.py:45
+#, python-brace-format
+msgid "Must include \"username_field\" and \"password\"."
+msgstr "Должны быть указаны \"Имя пользователя\" и \"пароль\"."
