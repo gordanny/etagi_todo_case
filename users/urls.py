@@ -1,10 +1,10 @@
-from django.urls import path, include
+from django.urls import path
 
 from . import views
 
 app_name = 'users'
 urlpatterns = [
-    path('user/', views.current_user),
-    path('login/', views.CustomLoginView.as_view(), name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('current/', views.current_user),
+    path('get_all/', views.get_all_users),
+    path('responsible/', views.get_responsible),
 ]

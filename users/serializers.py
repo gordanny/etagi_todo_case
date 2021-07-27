@@ -28,18 +28,18 @@ class CustomJSONWebTokenSerializer(JSONWebTokenSerializer):
                     if not user.is_active:
                         msg = _('User account is disabled.')
                         raise serializers.ValidationError(msg)
+                    else:
+                        payload = jwt_payload_handler(user)
 
-                    payload = jwt_payload_handler(user)
-
-                    return {
-                        'token': jwt_encode_handler(payload),
-                        'user': user
-                    }
+                        return {
+                            'token': jwt_encode_handler(payload),
+                            'user': user
+                        }
                 else:
-                    msg = _('Incorrect password.')
+                    msg = 'invalid_password'
                     raise serializers.ValidationError(msg)
             else:
-                msg = _('A user with this login is not exist.')
+                msg = 'invalid_username'
                 raise serializers.ValidationError(msg)
         else:
             msg = _('Must include "username_field" and "password".')
@@ -51,28 +51,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserModel
-        fields = ('username', 'first_name', 'last_name', 'patronymic', 'chief')
-
-
-class UserSerializerWithToken(serializers.ModelSerializer):
-
-    token = serializers.SerializerMethodField()
-    password = serializers.CharField(write_only=True)
-
-    class Meta:
-        model = UserModel
-        fields = ('username', 'first_name', 'last_name', 'patronymic', 'chief', 'token')
-
-    def get_token(self, obj):
-
-        payload = jwt_payload_handler(obj)
-        token = jwt_encode_handler(payload)
-        return token
-
-    def create(self, validated_data):
-        password = validated_data.pop('password', None)
-        instance = self.Meta.model(**validated_data)
-        if password is not None:
-            instance.set_password(password)
-        instance.save()
-        return instance
+        fields = ('id', 'username', 'first_name', 'last_name', 'patronymic', 'chief')

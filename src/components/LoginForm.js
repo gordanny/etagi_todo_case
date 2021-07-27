@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class LoginForm extends React.Component {
-  state = {
-    username: '',
-    password: ''
-  };
-
-  handle_change = e => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+  
+  handleInputChange = e => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState(prevstate => {
@@ -19,21 +22,21 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_login(e, this.state)}>
+      <form onSubmit={e => this.props.handleLogin(e, this.state)}>
         <h4>Log In</h4>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           value={this.state.username}
-          onChange={this.handle_change}
+          onChange={this.handleInputChange}
         />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
           value={this.state.password}
-          onChange={this.handle_change}
+          onChange={this.handleInputChange}
         />
         <input type="submit" />
       </form>
@@ -44,5 +47,5 @@ class LoginForm extends React.Component {
 export default LoginForm;
 
 LoginForm.propTypes = {
-  handle_login: PropTypes.func.isRequired
+  handleLogin: PropTypes.func.isRequired
 };

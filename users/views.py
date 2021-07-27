@@ -1,13 +1,10 @@
-from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import resolve_url
-
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from rest_framework_jwt.views import JSONWebTokenAPIView
 
-from .serializers import CustomJSONWebTokenSerializer, UserSerializer, UserSerializerWithToken
-from .forms import CustomAuthenticationForm
+from .serializers import CustomJSONWebTokenSerializer, UserSerializer
+from .models import CustomUser
 
 
 class CustomObtainJSONWebToken(JSONWebTokenAPIView):
@@ -23,18 +20,18 @@ def current_user(request):
     return Response(serializer.data)
 
 
-class CustomLoginView(LoginView):
-    form_class = CustomAuthenticationForm
-    template_name = 'todo/login.html'
-    redirect_authenticated_user = True
-
-    def get_success_url(self):
-        return resolve_url('/')
+@api_view(['GET'])
+def get_responsible(request):
+    queryset = CustomUser.objects.filter(chief=request.user.id)
+    serializer = UserSerializer(queryset, many=True)
+    return Response(serializer.data)
 
 
-def logout(request):
-    login_url = resolve_url('users:login')
-    return LogoutView.as_view(next_page=login_url)(request)
+@api_view(['GET'])
+def get_all_users(request):
+    queryset = CustomUser.objects.all()
+    serializer = UserSerializer(queryset, many=True)
+    return Response(serializer.data)
 
 
 

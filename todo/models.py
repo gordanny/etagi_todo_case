@@ -18,7 +18,7 @@ class Task(models.Model):
     ]
     title = models.CharField(_('title'), max_length=150)
     description = models.CharField(_('description'), max_length=200)
-    expiration_date = models.DateTimeField(_('expiration date'), null=True)
+    expiration_date = models.DateField(_('expiration date'), null=True)
     creation_date = models.DateTimeField(_('creation date'), auto_now_add=True)
     update_date = models.DateTimeField(_('update date'), auto_now=True)
     priority = models.CharField(_('priority'), max_length=2, choices=priorities, default='LW')

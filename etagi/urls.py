@@ -21,6 +21,6 @@ from users.views import custom_obtain_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('token-auth/', custom_obtain_jwt_token),
-    path('users/', include('users.urls')),
-    path('', include('todo.urls')),
+    path('API/users/', include('users.urls')),
+    path('API/tasks/', include('todo.urls')),
 ]
