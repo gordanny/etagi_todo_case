@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 import datetime
+import django_heroku
 from pathlib import Path
 
 from django.utils.translation import ugettext_lazy as _
@@ -44,12 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third-party apps.
     'rest_framework',
+    'corsheaders',
     # Dev apps.
     'todo',
     'users',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -59,13 +62,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'etagi.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,3 +171,13 @@ JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'etagi.utils.my_jwt_response_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600*24),
 }
+
+CORS_ORIGIN_WHITELIST = [
+    'https://localhost:3000',
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+django_heroku.settings(locals())
