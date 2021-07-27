@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from users.views import custom_obtain_jwt_token
+from todo.views import index
 
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('token-auth/', custom_obtain_jwt_token),
     path('API/users/', include('users.urls')),

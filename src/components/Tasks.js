@@ -27,7 +27,6 @@ class Tasks extends React.Component {
     }
 
     componentDidMount() {
-        console.log('pewpew');
         fetch('API/tasks/get/', {
             headers: {
                 Authorization: `JWT ${localStorage.getItem('token')}`
@@ -35,7 +34,6 @@ class Tasks extends React.Component {
             })
             .then(res => res.json())
             .then(json => {
-                console.log(json);
                 this.setState({tasksList: json});
             });
         fetch('API/users/responsible/', {
