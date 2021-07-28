@@ -69,10 +69,10 @@ class Tasks extends React.Component {
     return formattedDate;
   };
 
-  handleResposible = (props) => {
+  handleResposible = (list) => {
     let responsibleList = [];
     let name;
-    props.list.forEach(responsible => {
+    list.forEach(responsible => {
       if (this.props.userList[responsible]) {
         name = this.props.userList[responsible].fullName;
       } else {
@@ -96,6 +96,7 @@ class Tasks extends React.Component {
       } else {
           color = "normal";
       };
+      let responsibleList = this.handleResposible(task.responsible);
       taskList.push(
         <Card key={task.id} id={task.id} onClick={e => this.props.handleShowEdit(e, task.id)}>
           <Card.Header as="h6" className={color}>{task.title}</Card.Header>
@@ -113,7 +114,7 @@ class Tasks extends React.Component {
             </Row>
           </Card.Body>
           <Card.Footer>
-            <Row>Ответственные: <this.handleResposible list={task.responsible} /></Row>
+            <Row>Ответственные: {responsibleList}</Row>
           </Card.Footer>
         </Card>
       );
