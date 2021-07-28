@@ -6,3 +6,15 @@ input {
   display: block;
   margin: 5px 0 5px;
 }
+
+.expired {
+  color: red;
+}
+
+.finished {
+  color: green;
+}
+
+.normal {
+  color: dimgray;
+}
